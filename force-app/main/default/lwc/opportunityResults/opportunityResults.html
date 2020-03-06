@@ -1,0 +1,67 @@
+<template>
+    <template if:true={data}>
+        <lightning-card title="Opportunities"> 
+            <lightning-layout multiple-rows="true" horizontal-align="center">
+                <lightning-layout-item padding="around-small" size="12">
+                    <lightning-datatable onload={paginate}
+                    key-field="id"
+                    data={data}
+                    columns={columns}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    onsort={updateColumnSorting}
+                    onsave={handleSave}
+                    hide-checkbox-column='true'
+                    draft-values={draftValues}
+                    show-row-number-column="false"
+                    >
+                    </lightning-datatable>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout-item padding="around-small" flexibility="auto">
+                <lightning-button label="First" icon-name="utility:left" icon-position="left"
+                onclick={onFirst}>
+                </lightning-button>
+                <lightning-button icon-name="utility:chevronleft" icon-position="left"
+                onclick={onPrev}>
+                </lightning-button>
+
+                <span class="slds-p-horizontal_x-small">
+                    <a onclick={processMe} name="1" >1</a>
+                </span>
+                <span class="slds-p-horizontal_xxx-small">
+                    <a>...</a>
+                </span>
+
+                <template for:each={pageList} for:item='item'>
+                    <lightning-formatted-text class="slds-p-horizontal_x-small" key={item}>
+                        <a onclick={processMe} name={item}>{item}</a>
+                    </lightning-formatted-text>
+                </template>
+
+                <span class="slds-p-horizontal_xxx-small">
+                    <a>...</a>
+                </span>
+                <span class="slds-p-horizontal_x-small">
+                    <a onclick={processMe} name={totalPages}>{totalPages}</a>
+                </span>
+
+                <lightning-button icon-name ="utility:chevronright" icon-position="right" 
+                                  onclick={onNext}></lightning-button>
+                <lightning-button label="Last" icon-name="utility:right" icon-position="right" 
+                                  onclick={onLast}></lightning-button>
+
+            </lightning-layout-item>
+        </lightning-card>
+        
+       
+        <!--template for:each={pages} for:item='page'>
+            <lightning-layout-item key={page.number}>
+                <lightning-button label={page.number} onclick={pageChanged} ></lightning-button>
+            </lightning-layout-item>
+        </template-->
+</template>
+<template if:false={data}>
+    <div> No opportunities found</div>
+</template>
+</template>

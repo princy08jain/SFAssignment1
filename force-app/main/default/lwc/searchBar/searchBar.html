@@ -1,0 +1,20 @@
+<template>
+    <!--div class="search">
+        <div class="search-wrapper">
+            <form class="search-form">
+                <div class="search-input-wrapper">
+                    <input class="search-input" type="text" placeholder="Search..."/>
+                </div>
+                <input type="hidden" name="language" value="en" />
+            </form>
+        </div>
+    </div-->
+    <lightning-input type="search"
+        onkeyup={handleSearchTermChange}
+	    variant="label-hidden"
+	    class="slds-m-bottom_small"
+	    label="Search"
+	    placeholder="Search..."
+	    value={searchTerm}>
+    </lightning-input>
+</template>

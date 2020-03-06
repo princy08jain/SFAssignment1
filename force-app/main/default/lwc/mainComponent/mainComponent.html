@@ -1,0 +1,13 @@
+<template>
+    <div class="wrapper">
+        <section class="content">
+            <c-search-bar onsearchtext={handleSearchText}></c-search-bar>
+            <main class="main">
+                <c-opportunity-results value-to-search={selectedValue}></c-opportunity-results>
+            </main>
+            <!--template if:true={recordSize}>
+                <c-pagination page-size="10" total-records={recordSize} onpagechange={handlePageChange}></c-pagination>
+            </template-->
+        </section>
+    </div>
+</template>

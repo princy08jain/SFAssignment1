@@ -1,0 +1,12 @@
+<template>
+    <lightning-layout>
+        <div class="slds-p-horizontal_small"></div>
+            <lightning-button-group>
+            <template for:each={pages} for:item='page'>
+                <lightning-layout-item key={page.number}>
+                    <lightning-button label={page.number} onclick={pageChanged} ></lightning-button>
+                </lightning-layout-item>
+            </template>
+        </lightning-button-group>
+    </lightning-layout>
+</template>
